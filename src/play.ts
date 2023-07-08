@@ -19,7 +19,8 @@ export const run = async () => {
   const toolkit = new SqlToolkit(db, model);
   const executor = createSqlAgent(model, toolkit);
 
-  const input = "What are the names of the children";
+  // const input = "What are the names of the children";
+  const input = "What media items include Sam?";
 
   const query = `
 Given an input question, first create a syntactically correct saqlite query to run, then look at the results of the query and return the answer.
