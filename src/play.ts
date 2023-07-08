@@ -69,6 +69,18 @@ SQLiteResult: Result of the SQLite Query
 Answer: Final answer here
 
 What media items include Joel but not Rachel?
+
+Use the following query:
+SELECT DISTINCT mediaItems.fileName
+FROM childMediaItemAssociations
+JOIN children on childMediaItemAssociations.mediaItemId = children.id AND children.name = 'Joel'
+JOIN mediaItems ON childMediaItemAssociations.mediaItemId = mediaItems.id
+WHERE NOT EXISTS (
+  SELECT 1
+  FROM children
+  JOIN childMediaItemAssociations on children.id = childMediaItemAssociations.childId AND childMediaItemAssociations.mediaItemId = mediaItems.id
+  WHERE children.name = 'Rachel'
+);
 `;
 
   const result = await executor.call({ input });
