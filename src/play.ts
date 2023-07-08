@@ -19,9 +19,20 @@ export const run = async () => {
   const toolkit = new SqlToolkit(db, model);
   const executor = createSqlAgent(model, toolkit);
 
-  const input = `List the children names`;
+  const input = "What are the names of the children";
 
-  console.log(`Executing with input "${input}"...`);
+  const query = `
+Given an input question, first create a syntactically correct saqlite query to run, then look at the results of the query and return the answer.
+Use the following format:
+
+Question: Question here
+SQLite: SQLite Query to run
+SQLiteResult: Result of the SQLite Query
+Answer: Final answer here
+
+{input}
+`
+  // console.log(`Executing with input "${input}"...`);
 
   const result = await executor.call({ input });
 
@@ -37,3 +48,5 @@ export const run = async () => {
 
   await datasource.destroy();
 };
+
+// 4330774323964802
