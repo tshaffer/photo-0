@@ -20,10 +20,10 @@ export const run = async () => {
   const executor = createSqlAgent(model, toolkit);
 
   // const input = "What are the names of the children";
-  const input = "What media items include Sam?";
+  // const input = "What media items include Sam?";
 
-  const query = `
-Given an input question, first create a syntactically correct saqlite query to run, then look at the results of the query and return the answer.
+  const input = `
+Given an input question, first create a syntactically correct sqlite query to run, then look at the results of the query and return the answer.
 Use the following format:
 
 Question: Question here
@@ -31,7 +31,7 @@ SQLite: SQLite Query to run
 SQLiteResult: Result of the SQLite Query
 Answer: Final answer here
 
-{input}
+What media items include Sam?
 `
   // console.log(`Executing with input "${input}"...`);
 
