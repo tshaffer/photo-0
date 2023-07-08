@@ -3,10 +3,6 @@ import { SqlDatabase } from "langchain/sql_db";
 import { createSqlAgent, SqlToolkit } from "langchain/agents";
 import { DataSource } from "typeorm";
 
-/** This example uses Chinook database, which is a sample database available for SQL Server, Oracle, MySQL, etc.
- * To set it up follow the instructions on https://database.guide/2-sample-databases-sqlite/, placing the .db file
- * in the examples folder.
- */
 export const run = async () => {
   const datasource = new DataSource({
     type: "sqlite",
@@ -31,10 +27,8 @@ SQLite: SQLite Query to run
 SQLiteResult: Result of the SQLite Query
 Answer: Final answer here
 
-What media items include Sam?
-`
-  // console.log(`Executing with input "${input}"...`);
-
+What media items do not include any children?
+`;
   const result = await executor.call({ input });
 
   console.log(`Got output ${result.output}`);
