@@ -224,7 +224,7 @@ WITH RECURSIVE TagsTree AS (
     SQLiteResult: Result of the SQLite Query
     Answer: Final answer here
   
-    List the images that include Rachel.
+    List the images that include ShafferChildren.
 
   `;
 
